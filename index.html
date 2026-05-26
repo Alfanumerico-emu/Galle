@@ -12,10 +12,10 @@
     <style>
         /* Paleta de Colores Extraída de las Imágenes */
         :root {
-            --color-rojo-pedestal: #E30613; /* Primario de la marca (del pedestal) */
-            --color-dorado-logo: #FBB03B;  /* Secundario para acentos (del logo) */
+            --color-rojo-pedestal: #E30613; /* Primario de la marca */
+            --color-dorado-logo: #FBB03B;  /* Secundario para acentos */
             --color-texto-oscuro: #2B1D0E;  /* Texto principal */
-            --color-fondo-puro: #FFFFFF;    /* Fondo puro para el logo central */
+            --color-fondo-puro: #FFFFFF;    /* Fondo para el logo central */
             --color-gris-fondo: #F7F7F7;   /* Fondo general sutil */
         }
 
@@ -28,7 +28,7 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--color-gris-fondo);
-            opacity: 1.0; /* Maximiza la base para la marca de agua */
+            opacity: 1.0; 
             color: var(--color-texto-oscuro);
             display: flex;
             justify-content: center;
@@ -38,19 +38,20 @@
             position: relative; /* Para el pseudo-elemento ::before */
         }
         
-        /* 1. Corrección del Fondo: Mascota Watermark más visible */
+        /* 1. Fondo Watermark Corregido: Mascota Subtílmente más visible */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Integración sutil de la mascota en el fondo como watermark */
+            /* Integración sutil de la mascota en el fondo */
             background-image: url('./mascota-galle.jpeg'); 
             background-repeat: no-repeat;
             background-position: center bottom; /* Centrada en la parte inferior */
-            background-size: 60% auto; /* Ajuste para que se note */
-            /* Aumento de la visibilidad reduciendo la opacidad de la superposición gris claro */
-            background-color: rgba(247, 247, 247, 0.85); /* Opacidad alpha reducida de 0.9 a 0.85 para un ~5% más de visibilidad */
+            background-size: 50% auto; /* Tamaño ajustado */
+            /* Opacidad alpha reducida para un efecto watermark muy sutil */
+            background-color: rgba(247, 247, 247, 0.9); /* Opacidad reducida para que apenas se note */
             z-index: -1;
+            pointer-events: none; /* No interfiere con los botones */
         }
 
         .card {
@@ -64,12 +65,12 @@
             position: relative; /* Para posicionamiento interno */
         }
 
-        /* Contenedor del Logo Principal Corregido: Círculo Perfecto, Completo y sin Distorsión */
+        /* 2. Logo Principal Corregido: Círculo Perfecto, Limpio y sin Marco Cuadrado Distorsionado */
         .profile-container {
             width: 150px;
             height: 150px;
             margin: 0 auto 25px auto;
-            background-color: var(--color-fondo-puro); /* Fondo blanco puro para el logo */
+            background-color: var(--color-fondo-puro); /* Fondo blanco puro */
             border-radius: 50%;
             padding: 8px; /* Espacio para el borde exterior */
             /* Borde degradado de alta gama */
@@ -88,7 +89,7 @@
             object-fit: contain; /* Preserva la proporción del logo completo sin apretarlo */
         }
 
-        /* 2. Cabecera con la Mascota Interactiva Corregida */
+        /* Cabecera con Nombre y Mascota Interactiva */
         .header-content {
             margin-bottom: 35px;
             position: relative;
@@ -98,8 +99,8 @@
             position: absolute;
             top: -20px;
             right: -10px;
-            width: 50px; /* Tamaño ajustado para que se note más */
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background-color: var(--color-rojo-pedestal);
             border-radius: 50%;
             display: flex;
@@ -114,8 +115,8 @@
         }
         
         .header-mascot-icon img {
-            width: 80%; /* Ajuste para el conejo completo */
-            height: 80%;
+            width: 70%;
+            height: 70%;
             object-fit: contain;
         }
 
@@ -129,13 +130,7 @@
             line-height: 1.1;
         }
         
-        .brand-tagline {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-            font-size: 1rem;
-            color: #666;
-            margin-top: 5px;
-        }
+        /* 3. Texto "Sabor y Calidad" eliminado */
 
         .links-container {
             display: flex;
@@ -201,7 +196,6 @@
                 <img src="./mascota-galle.jpeg" alt="Mascota Alimentos Gallè">
             </div>
             <h1 class="brand-name">Alimentos Gallè</h1>
-            <p class="brand-tagline">Sabor y Calidad</p>
         </header>
 
         <nav class="links-container">
